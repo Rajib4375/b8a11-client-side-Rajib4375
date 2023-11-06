@@ -1,0 +1,25 @@
+/* eslint-disable react/prop-types */
+
+
+const AllJobs = ({alljob}) => {
+    const {company_name, job_title, job_category, job_posting_date, application_deadline,compony_logo, salary_range} = alljob;
+    return (
+        <div className=" border-2  rounded-lg w-[600px] h-[392px] p-12">
+            <img className="w-[116px] h-[60px] mb-2" src={compony_logo} alt="" />
+            <h2 className="text-2xl font-extrabold">{job_title}</h2>
+            <p className="text-xl font-semibold">{company_name}</p>
+            <button className="btn btn-outline  m-2">{job_category}</button>
+            <p className="text-xl font-semibold">Salary:{salary_range} Tk</p>
+            <div className="">
+                <p>Posting Date : {job_posting_date}</p>
+                <p>Application Deadline : {application_deadline}</p>
+                <div className="card-actions justify-end">
+                <button className="btn btn-primary bg-[#7E90FE]">View Details</button>
+              </div>
+            </div>
+            
+        </div>
+    );
+};
+
+export default AllJobs;

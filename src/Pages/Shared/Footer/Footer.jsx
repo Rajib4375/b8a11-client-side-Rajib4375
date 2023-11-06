@@ -2,7 +2,7 @@ import logo from '../../../assets/career logo.webp'
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content">
+        <footer className="footer p-10 bg-base-200 text-base-content mt-10">
         <aside>
         <img className="w-[120px] h-[70px]" src={logo} alt="" />
           <p>There are many variations of <br /> passages of Lorem Ipsum ,<br /> but the majority have suffered alteration in some form.</p>
