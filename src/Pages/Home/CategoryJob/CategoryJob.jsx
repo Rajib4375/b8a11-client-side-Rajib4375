@@ -1,6 +1,11 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import AllJobsCatagory from '../AllJobsCatagory/AllJobsCatagory';
+import RemoteJob from '../RemoteJob/RemoteJob';
+import OnsiteJob from '../OnsiteJob/OnsiteJob';
+import PartTimeJob from '../PartTimeJob/PartTimeJob';
+import Hybrid from '../Hybrid/Hybrid';
+
 const CategoryJob = () => {
     return (
        <div className=' mt-10 '>
@@ -15,17 +20,27 @@ const CategoryJob = () => {
           <Tab>Hybrid</Tab>
           <Tab>Part Time</Tab>
         </TabList>
-
+         
         <TabPanel>
           <AllJobsCatagory></AllJobsCatagory>
         </TabPanel>
-    
+          
         <TabPanel>
-          <h2>Any content 1</h2>
+          <OnsiteJob></OnsiteJob>
         </TabPanel>
+
         <TabPanel>
-          <h2>Any content 2</h2>
+        <RemoteJob></RemoteJob>
         </TabPanel>
+
+        <TabPanel>
+        <Hybrid></Hybrid>
+        </TabPanel>
+
+        <TabPanel>
+        <PartTimeJob></PartTimeJob>
+        </TabPanel>
+
       </Tabs>
         </div>
        </div>
