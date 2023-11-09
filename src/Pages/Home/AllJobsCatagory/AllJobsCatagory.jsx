@@ -6,7 +6,7 @@ const AllJobsCatagory = () => {
     const [alljobs, setAllJobs] = useState([]);
  
     useEffect(()=>{
-        fetch('job.json')
+        fetch('http://localhost:5000/jobs')
         .then(res =>res.json())
         .then(data => setAllJobs(data))
     },[])

@@ -1,6 +1,5 @@
 [
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "job_id": "01",
         "company_name": "Dekko Group",
         "job_title": "Operation Manager",
@@ -8,12 +7,12 @@
         "job_posting_date": "6th November 2023",
         "application_deadline":"30th November 2023",
         "compony_logo": "https://i.ibb.co/027jS9v/dekko2.png",
-        "salary_range": "40000"
+        "salary_range": 40000,
+        "job_Applicants ":   15
         
         
     },
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "job_id": "02",
         "company_name": "Chaldal.com",
         "job_title": "Operation Director",
@@ -21,12 +20,12 @@
         "job_posting_date": "6th November 2023",
         "application_deadline":"30th November 2023",
         "compony_logo": "https://i.ibb.co/TgS0RtS/chaldal-logo.jpg",
-        "salary_range": "40000"
+        "salary_range": 40000,
+        "job_Applicants ":   10
         
         
     },
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "job_id": "03",
         "company_name": "Degital IT center",
         "job_title": "Web Designer",
@@ -34,10 +33,10 @@
         "job_posting_date": "6th November 2023",
         "application_deadline":"30th November 2023",
         "compony_logo": "https://i.ibb.co/WgCd3PL/digital-logo.jpg",
-        "salary_range": "30000"   
+        "salary_range": 30000,
+        "job_Applicants ":   25
     },
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "job_id": "04",
         "company_name": "enavato",
         "job_title": "Web Developer",
@@ -45,12 +44,12 @@
         "job_posting_date": "6th November 2023",
         "application_deadline":"30th November 2023",
         "compony_logo": "https://i.ibb.co/yhfWmqy/logo-envato.png",
-        "salary_range": "30000" 
+        "salary_range": 30000,
+        "job_Applicants ":   15
        
         
     },
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "job_id": "05",
         "company_name": "Kazifarms",
         "job_title": "General Manager",
@@ -58,11 +57,11 @@
         "job_posting_date": "6th November 2023",
         "application_deadline":"30th November 2023",
         "compony_logo": "https://i.ibb.co/0MdGfMQ/Kazi-farms.webp",
-        "salary_range": "40000"
+        "salary_range": 40000,
+        "job_Applicants ":   20
         
     },
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "job_id": "06",
         "company_name": "uniliver",
         "job_title": "Assistant General Manager",
@@ -70,11 +69,11 @@
         "job_posting_date": "6th November 2023",
         "application_deadline":"30th November 2023",
         "compony_logo": "https://i.ibb.co/9prqjPg/Unilever-logo.jpg",
-        "salary_range": "38000"
+        "salary_range": 38000,
+        "job_Applicants ":   25
         
     },
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "job_id": "07",
         "company_name": "Shwapno",
         "job_title": "Branch Incharge",
@@ -82,10 +81,10 @@
         "job_posting_date": "6th November 2023",
         "application_deadline":"30th November 2023",
         "compony_logo": "https://i.ibb.co/VDg4bGW/shwapno.jpg",
-        "salary_range": "15000"
+        "salary_range": 15000,
+        "job_Applicants ":   15
     },
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "job_id": "08",
         "company_name": "aarong",
         "job_title": "Manager",
@@ -93,7 +92,8 @@
         "job_posting_date": "6th November 2023",
         "application_deadline":"30th November 2023",
         "compony_logo": "https://i.ibb.co/3h04M0f/aarong-logo.webp",
-        "salary_range": "20000"
+        "salary_range": 20000,
+        "job_Applicants ":   30
 
     }
 ]
