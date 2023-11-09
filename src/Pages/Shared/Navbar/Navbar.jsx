@@ -1,12 +1,27 @@
 import { Link } from "react-router-dom";
 import logo from '../../../assets/career logo.webp'
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/Authprovider";
 
 const Navbar = () => {
 
+  const {user, logOut}= useContext(AuthContext);
+
+  const handleLogOut = () =>{
+    logOut()
+    .then(()=>{})
+    .catch(error => console.log(error))
+
+  }
+
   const navItem = <>
    <li><Link to="/">Home</Link></li>
-   <li><Link>All Jobs</Link></li>
-   <li><Link>Blogs</Link></li>
+   <li><Link to="/alljob">All Jobs</Link></li>
+   <li><Link to="/blogs">Blogs</Link></li>
+   {
+    user?.email ? <li><button onClick={handleLogOut}>Logout</button></li>:
+    <li><Link to="/login">Login</Link></li>
+   }
   </>
 
     return (
