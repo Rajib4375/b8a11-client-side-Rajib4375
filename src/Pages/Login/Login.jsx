@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/Authprovider";
 import Swal from "sweetalert2";
+import { FcGoogle } from 'react-icons/fc';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 
 const Login = () => {
@@ -43,6 +46,20 @@ const Login = () => {
         
     }
 
+    const Auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = ()=>{
+      signInWithPopup(Auth, provider)
+      .then(result =>{
+        const user = result.user;
+        console.log(user);
+      })
+      .catch(error =>{
+        console.log('error', error.message)
+      })
+    }
+
 
     return (
         <div className="hero min-h-screen bg-base-200 ">
@@ -69,7 +86,10 @@ const Login = () => {
         <div className="form-control ">
           
           <input className="btn btn-primary" type="submit" value="Login" />
+          <p className="text-xl text-center mt-2">or</p>
+          
         </div>
+        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary"> <FcGoogle></FcGoogle> Continue With Google</button>
       </form>
       <p className="my-6 text-center">Have an Account <Link className="text-orange-600 font-bold" to="/signup">Sign Up</Link></p>
     </div>

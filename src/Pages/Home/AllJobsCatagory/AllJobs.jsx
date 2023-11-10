@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const AllJobs = ({alljob}) => {
     const {_id, company_name, job_title, job_category, job_posting_date, application_deadline,compony_logo, salary_range} = alljob;
     return (
-        <div className=" border-2  rounded-lg w-[600px] h-[392px] p-12">
+        <div className=" border-2  rounded-lg lg:w-[600px] lg:h-[392px] p-12">
             <img className="w-[116px] h-[60px] mb-2" src={compony_logo} alt="" />
             <h2 className="text-2xl font-extrabold">{job_title}</h2>
             <p className="text-xl font-semibold">{company_name}</p>
