@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 
-import PrivateRoute from "../../Routes/PrivateRoute";
+import { Link } from "react-router-dom";
+
+
 
 const AllJobsRow = ({job}) => {
-    const { company_name, job_title,  job_posting_date, application_deadline,compony_logo, salary_range} = job;
+    const {_id, company_name, job_title,  job_posting_date, application_deadline,compony_logo, salary_range} = job;
     return (
         <tr>
         <th>
@@ -29,7 +31,7 @@ const AllJobsRow = ({job}) => {
         <td>{application_deadline}</td>
         <td>{salary_range}</td>
         <th>
-        <button  className="btn btn-ghost btn-xs">details</button>
+        <Link to={`/details/${_id}`}><button  className="btn btn-ghost btn-xs">details</button></Link>
         </th>
       </tr>
     );
