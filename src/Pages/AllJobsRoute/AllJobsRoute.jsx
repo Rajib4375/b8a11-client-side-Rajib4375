@@ -1,10 +1,12 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Provider/Authprovider";
+/* eslint-disable react-hooks/exhaustive-deps */
+import {  useEffect, useState } from "react";
+import AllJobsRow from "./AllJobsRow";
 
 
-const AllJobsRoute = () => {
+
+const AllJobsRoute = () => { 
   
-    const {user}= useContext(AuthContext);
+    
     const [jobs, setJobs] = useState([]);
 
     const url = `http://localhost:5000/jobs`;
@@ -17,9 +19,32 @@ const AllJobsRoute = () => {
    
 
     return (
-        <div>
-           <h2>My all jobs : {jobs.length}</h2>
-        </div>
+        <div className="overflow-x-auto">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
+        <th>
+          
+        </th>
+        <th>Company Name</th>
+        <th>Job Title</th>
+        <th>Job Posting Date</th>
+        <th>Application Deadline</th>
+        <th>Salary range</th>
+      </tr>
+    </thead>
+    <tbody>
+   {
+    jobs.map(job =><AllJobsRow
+    key={job._id} job ={job}
+    ></AllJobsRow>)
+   }
+    </tbody>
+  
+    
+  </table>
+</div>
     );
 };
 
