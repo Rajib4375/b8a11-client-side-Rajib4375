@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../Provider/Authprovider";
+import Swal from "sweetalert2";
 
 
 const JobDetails = () => {
-
+   
   const {user} = useContext(AuthContext);
 
     const jobs = useLoaderData();
@@ -12,7 +13,50 @@ const JobDetails = () => {
     const job = jobs.find(job => job._id === id);
     console.log(job)
     
-    const { company_name, job_title, job_category, job_posting_date, application_deadline,compony_logo, salary_range} = job;
+    const {_id, company_name, job_title, job_category, job_posting_date, application_deadline,compony_logo, salary_range} = job;
+
+
+    const handleApplicatonSubmit = event =>{
+      event.preventDefault();
+      const form = event.target;
+      const name = form.name.value;
+      const date = form.date.value;
+      const email = user?.email;
+      const resume = form.resume.value;
+
+      const submitJob ={
+        jobHolderName : name,
+        email,
+        date,
+        resume,
+        title : job_title,
+        job_id : _id,
+        compony_logo
+       
+      }
+      console.log(submitJob)
+        
+      fetch('http://localhost:5000/jobApplyed',{
+        method:'POST',
+        headers:{
+           'content-type': 'application/json'
+        },
+        body:JSON.stringify(submitJob)
+      })
+      .then(res => res.json())
+      .then(data =>{
+        console.log(data);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: " Job Apply has been Successfull",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      })
+
+
+    }
 
     return (
         <div className="card card-side bg-base-100 shadow-xl lg:w-[900px] mx-auto mt-10">
@@ -31,10 +75,10 @@ const JobDetails = () => {
 <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
     
-  <div>
+ 
   <div>
             <h2 className='text-center text-3xl'>Job Apply</h2>
-            <form >
+            <form onSubmit={handleApplicatonSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="form-control">
                         <label className="label">
@@ -69,7 +113,7 @@ const JobDetails = () => {
 
             </div>
         </div>
-  </div>
+  
 
     <div className="modal-action">
       <form method="dialog">
