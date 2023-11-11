@@ -60,7 +60,7 @@ const JobDetails = () => {
 
     return (
         <div className="card card-side bg-base-100 shadow-xl lg:w-[900px] mx-auto mt-10">
-  <figure><img className="lg:w-[400px] lg:h-[300px] " src={compony_logo}/></figure>
+  <figure><img className="lg:w-[200px] lg:h-[150px] " src={compony_logo}/></figure>
   <div className="card-body">
     <h2 className="card-title">Company Name : {company_name}</h2>
     <p>Job Title : {job_title}</p>
