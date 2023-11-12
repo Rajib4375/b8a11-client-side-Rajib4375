@@ -2,6 +2,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/Authprovider";
 import AppliedJobCard from "./AppliedJobCard";
+import axios from "axios";
 
 const AppliedJob = () => {
     const {user} =useContext(AuthContext);
@@ -10,9 +11,15 @@ const AppliedJob = () => {
     const url = `http://localhost:5000/jobApplyed?email=${user.email}`
 
     useEffect(()=>{
-        fetch(url)
-        .then(res => res.json())
-        .then(data => setApplication(data))
+
+       axios.get(url, {withCredentials: true})
+       .then(res =>{
+        setApplication(res.data);
+       })
+
+        // fetch(url)
+        // .then(res => res.json())
+        // .then(data => setApplication(data))
     },[])
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-7 mt-10 ">

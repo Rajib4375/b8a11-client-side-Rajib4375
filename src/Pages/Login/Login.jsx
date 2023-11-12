@@ -1,28 +1,42 @@
+/* eslint-disable no-undef */
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/Authprovider";
 import Swal from "sweetalert2";
 import { FcGoogle } from 'react-icons/fc';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config";
+import axios from "axios";
 
 
 const Login = () => {
   
   const {signIn} = useContext(AuthContext);
-
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location)
  
     const handleLogin = event =>{
         event.preventDefault();
         const form = event.target;
         const email =form.email.value;
         const password = form.password.value;
-        console.log( email, password);
+        
 
         signIn(email, password)
         .then(result =>{
-          const user = result.user;
-          console.log(user)
+          const loggedInUser = result.user;
+          console.log(loggedInUser);
+          const user = {email: loggedInUser.email};
+          
+
+          // get access token
+          axios.post('http://localhost:5000/jwt', user, {withCredentials:true})
+          .then(res =>{
+            console.log(res.data)
+            if(res.data.success)
+             navigate(location?.state ? location ?.state : '/' )
+          })
 
           Swal.fire({
             position: "top-end",
@@ -30,6 +44,7 @@ const Login = () => {
             title: "Login successfull",
             showConfirmButton: false,
             timer: 1500
+            
           });
         })
         .catch(error => {
@@ -52,8 +67,18 @@ const Login = () => {
     const handleGoogleSignIn = ()=>{
       signInWithPopup(Auth, provider)
       .then(result =>{
-        const user = result.user;
-        console.log(user);
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        const user = {email: loggedInUser.email};
+        // navigate(location?.state ? location ?.state : '/' )
+
+         // get access token
+         axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+         .then(res =>{
+           console.log(res.data)
+           if(res.data.success)
+             navigate(location?.state ? location ?.state : '/' )
+         })
       })
       .catch(error =>{
         console.log('error', error.message)
